@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harris' Wordle</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <link rel="icon" href="./wordle.0.jpg" />
+  <div class="all night-available">
+    <body>
+      <div>
+        <div class="container">
+          <h1 class="info">Harris' Wordle Clone</h1>
+          <div class="night-mode-button">
+            <input type="checkbox" class="checkbox" id="night-mode" />
+            <label for="night-mode" class="label">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <div class="blob"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div id="game-board"></div>
+      <div id="keyboard">
+        <div id="first-row">
+          <div class="keyboard-button">q</div>
+          <div class="keyboard-button">w</div>
+          <div class="keyboard-button">e</div>
+          <div class="keyboard-button">r</div>
+          <div class="keyboard-button">t</div>
+          <div class="keyboard-button">y</div>
+          <div class="keyboard-button">u</div>
+          <div class="keyboard-button">i</div>
+          <div class="keyboard-button">o</div>
+          <div class="keyboard-button">p</div>
+        </div>
+
+        <div id="second-row">
+          <div class="keyboard-button">a</div>
+
+          <div class="keyboard-button">s</div>
+
+          <div class="keyboard-button">d</div>
+
+          <div class="keyboard-button">f</div>
+
+          <div class="keyboard-button">g</div>
+
+          <div class="keyboard-button">h</div>
+
+          <div class="keyboard-button">j</div>
+
+          <div class="keyboard-button">k</div>
+
+          <div class="keyboard-button">l</div>
+        </div>
+
+        <div id="third-row">
+          <div class="keyboard-button">del</div>
+          <div class="keyboard-button">z</div>
+
+          <div class="keyboard-button">x</div>
+
+          <div class="keyboard-button">c</div>
+
+          <div class="keyboard-button">v</div>
+
+          <div class="keyboard-button">b</div>
+
+          <div class="keyboard-button">n</div>
+
+          <div class="keyboard-button">m</div>
+          <div class="keyboard-button">enter</div>
+        </div>
+      </div>
+
+      <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+      ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+      <script type="module" src="./script.js"></script>
+    </body>
+  </div>
+</html>

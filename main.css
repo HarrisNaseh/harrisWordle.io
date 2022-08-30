@@ -1,0 +1,175 @@
+.info {
+  text-align: center;
+  margin: 0;
+  transition: 0.7s ease all;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  /* height: 100vh; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  background-color: black;
+  display: flex;
+  height: 30px;
+  border-radius: 50px;
+  width: 70px;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0 15px;
+  transition: all 0.7 ease-in-out;
+  cursor: pointer;
+  border: 2px solid rgb(8, 192, 202);
+  transition: 0.7s ease all;
+}
+
+.label .fa-moon {
+  color: white;
+}
+
+.label .fa-sun {
+  color: black;
+}
+
+.blob {
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background: rgb(94, 141, 235);
+  border-radius: 50px;
+  transition: 0.7s ease all;
+}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox:checked + .label .blob {
+  left: 0;
+  background-color: rgb(10, 203, 75);
+}
+
+.checkbox:checked + .label {
+  background-color: white;
+}
+
+#game-board {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.letter-box {
+  background-color: rgba(red, green, blue, 0);
+  border: 2px solid rgb(97, 58, 58);
+  border-radius: 0.5rem;
+  margin: 0.2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 1px;
+  transition: 0.7s ease all;
+}
+
+.letter-row {
+  display: flex;
+}
+
+.filled-box {
+  /* border: 2px solid black; */
+  font-size: 2rem;
+  color: rgb(35, 32, 32);
+  transition: 0.7s ease all;
+  /* background-color: black; */
+}
+
+.filled-box-night {
+  color: white;
+  /* background-color: black; */
+}
+
+#keyboard {
+  position: relative;
+  margin: 1rem 0;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+#keyboard div {
+  display: flex;
+}
+
+#keyboard {
+  padding-top: 0em;
+}
+
+#second-row {
+  margin: 0.5rem 0;
+}
+
+.keyboard-button {
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 800;
+  padding: 0.5rem;
+  margin: 0.5em 0.1em;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  /* border: 1px soild black; */
+}
+
+.keyboard-button:hover {
+  background-color: white;
+}
+
+.correct {
+  background-color: rgb(5, 147, 10);
+}
+
+.not-in-word {
+  background-color: rgb(161, 154, 154);
+}
+
+.in-word {
+  background-color: rgba(244, 244, 45, 0.705);
+}
+
+.all {
+  height: 100vh;
+  width: 100vw;
+  transition: 0.7s ease all;
+  /* background-color: red; */
+}
+
+.night {
+  background-color: black;
+  color: white;
+}
+
+/* .night-text {
+  color: white;
+} */
