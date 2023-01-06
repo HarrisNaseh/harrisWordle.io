@@ -1,0 +1,37 @@
+{
+  "folders": [
+	{
+		"path": "..\\JS-basics"
+	},
+	{
+		"path": "..\\HtmlCss\\HTML"
+	},
+	{
+		"path": "..\\HtmlCss\\CSS"
+	},
+	{
+		"path": "..\\HtmlCss\\Coffee"
+	},
+	{
+		"path": "..\\HtmlCss\\Colors"
+	},
+	{
+		"path": "..\\HtmlCss\\Units"
+	},
+	{
+		"path": "..\\HtmlCss\\fonts"
+	},
+	{
+		"path": "..\\HtmlCss\\Display-properites"
+	},
+	{
+		"path": "..\\HtmlCss\\jsPractice"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Wordle"
+  }
+}
