@@ -8,11 +8,29 @@ let guessesLeft = NUM_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
 //Chooses a random word from WORDS array
-let word = WORDS[Math.floor(Math.random() * WORDS.length)];
+let word = "tests";//WORDS[Math.floor(Math.random() * WORDS.length)];
 word = word.toUpperCase();
 let board = document.getElementById("game-board");
 let darkMode = false;
 let filled = "filled-box";
+let ready = false;
+overlay();
+let nightButtondiv = document.getElementById("nightbutton");
+let end = document.createElement("div");
+// nightButtondiv.appendChild(end);
+// end.className = "end";
+// end.innerHTML = `<p>Correct Word: ${word}<p>`;
+
+//document.body.appendChild(end);
+
+// end.className = "end";
+// end.innerHTML = `<p>Correct Word: "${word}"<p>`;
+// document.body.appendChild(end);
+
+document.getElementById("close-button").addEventListener("click", function () {
+  document.getElementById("overlay").style.display = "none";
+  ready = true;
+});
 
 /**
  * Creates rows and box elements
@@ -41,7 +59,7 @@ function initBoard() {
  * Only A-Z, Backspace, and Enter can be used
  */
 document.addEventListener("keyup", (e) => {
-  if (guessesLeft == 0) {
+  if (guessesLeft == 0 || !ready) {
     return;
   }
 
@@ -58,10 +76,12 @@ document.addEventListener("keyup", (e) => {
       insertLetter(keyPressed);
       return;
     } else if (keyPressed != "Backspace") {
-      toastr.error("Not valid letter");
+      toastr.error("Not valid letter","Opps",{timeOut:1492,  positionClass: "toast-top-center" });
+      //toastr.error("Not valid letter");
     }
   }
 });
+
 
 /**
  *
@@ -103,6 +123,18 @@ function deleteLetter() {
   nextLetter--;
 }
 
+function overlay(){
+    for(let i = 0; i < 3; i++){
+      let box = document.getElementsByClassName("flip")[i];
+      box.style.setProperty("--animate-duration", "1s");
+      box.classList.add("animate__animated", "animate__flipInX");
+    }
+  
+  }
+  
+
+
+
 /**
  * Checks the currentWord against the correct answer.
  * Checks if the word is long enough, is a valid word and that the
@@ -121,13 +153,14 @@ function checkGuess() {
   }
   if (!ALLWORDS.includes(currWord) && nextLetter == 5) {
     animateCSS(row, "shakeX");
-    toastr.error("Not a valid word");
+    toastr.error("Not a valid word","Opps",{timeOut:1492,  positionClass: "toast-top-center" });
     return;
   }
 
   if (nextLetter != 5) {
     animateCSS(row, "shakeX");
-    toastr.error("Please enter 5 letters");
+
+    toastr.error("Please enter 5 letters","Opps",{timeOut:1492,  positionClass: "toast-top-center" });
 
     return;
   }
@@ -147,10 +180,11 @@ function checkGuess() {
     } else {
       if (letter == rightWord[i]) {
         color = "green";
+        rightWord[position] = "#";
       } else {
         color = "yellow";
       }
-      rightWord[position] = "#";
+      
     }
     setTimeout(() => {
       if (color == "gray") {
@@ -169,11 +203,21 @@ function checkGuess() {
       shadeKeyBoard(letter, color);
     }, delay);
   }
+ 
 
   if (currWord == word) {
-    setTimeout(() => {
-      toastr.success("You got the right Word!");
-    }, 1500);
+   
+  end.className = "end";
+  end.id = "endCorrect";
+  if(guessesLeft == 6){
+    end.style.top = '140px';
+  }
+  end.style.setProperty("--animate-duration", "1s");
+  end.classList.add("animate__animated", "animate__fadeIn");
+  end.innerHTML = `<p>MadLad!<p>`;  
+  
+  nightButtondiv.appendChild(end);
+
     animateCSS(row, "jackInTheBox");
     guessesLeft = 0;
   } else {
@@ -182,10 +226,17 @@ function checkGuess() {
     nextLetter = 0;
 
     if (guessesLeft == 0) {
-      toastr.info("You ran out of guesses");
-      setTimeout(() => {
-        toastr.info(`The right word was: "${word}"`);
-      }, 1500);
+      //toastr.info("You ran out of guesses");
+      //setTimeout(() => {
+        nightButtondiv.appendChild(end);
+        end.className = "end";
+        end.innerHTML = `<p>Correct Word: "${word}"<p>`;
+        end.style.setProperty("--animate-duration", "1s");
+        end.classList.add("animate__animated", "animate__fadeIn");
+        //toastr.info(`The right word was: "${word}"`,"You ran out of guesses",{timeOut:0, positionClass: "toast-top-center", extendedTimeOut: 0});
+
+        
+      //}, 1500);
     }
   }
 }
@@ -266,7 +317,8 @@ const animateCSS = (element, animation, prefix = "animate__") =>
 
 initBoard();
 
-document.querySelector(".checkbox").addEventListener("change", () => {
+
+document.querySelector(".checkbox").addEventListener("click", () => {
   document.querySelectorAll(".night-available").forEach((ele) => {
     ele.classList.toggle("night");
   });
@@ -285,3 +337,16 @@ document.querySelector(".checkbox").addEventListener("change", () => {
     e.classList.toggle("filled-box-night");
   });
 });
+
+document.getElementById("night-mode").click();
+
+// setTimeout(function () {
+//   document.getElementById("night-mode").checked = true;
+// }, 100);
+
+
+
+
+
+
+

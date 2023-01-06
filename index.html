@@ -27,10 +27,46 @@
   <link rel="icon" href="./wordle.0.jpg" />
   <div class="all night-available">
     <body>
+      <div id="overlay">
+        <div id="overlay-content">
+          <h1 id="HTP">How to Play</h1>
+          <ul id="list"><li>You have 6 guesses to get the correct word</li>
+            <li>The tile color shows how close each letter is to the correct word</li>
+          </ul>
+          <p>Example:</p>
+          <div class="letters-row">
+            <div class="letters-box correct flip">T</div>
+            <div class="letters-box">R</div>
+            <div class="letters-box">U</div>
+            <div class="letters-box">S</div>
+            <div class="letters-box">T</div>
+          </div>
+          <p><b>T</b> is in the correct position</p>
+          <div class="letters-row">
+            <div class="letters-box">F</div>
+            <div class="letters-box">L</div>
+            <div class="letters-box in-word flip">A</div>
+            <div class="letters-box">M</div>
+            <div class="letters-box">E</div>
+          </div>
+          <p><b>A</b> is in the word but not correct position</p>
+          <div class="letters-row">
+            <div class="letters-box">M</div>
+            <div class="letters-box not-in-word flip">U</div>
+            <div class="letters-box">S</div>
+            <div class="letters-box">T</div>
+            <div class="letters-box">Y</div>
+          </div>
+          <p><b>U</b> is not in the word</p>
+
+          <button id="close-button">X</button>
+        </div>
+        
+      </div>
       <div>
         <div class="container">
           <h1 class="info">Harris' Wordle Clone</h1>
-          <div class="night-mode-button">
+          <div class="night-mode-button" id="nightbutton">
             <input type="checkbox" class="checkbox" id="night-mode" />
             <label for="night-mode" class="label">
               <i class="fas fa-moon"></i>
@@ -95,6 +131,9 @@
         </div>
       </div>
 
+
+
+
       <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -102,6 +141,9 @@
       ></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
       <script type="module" src="./script.js"></script>
     </body>
   </div>
