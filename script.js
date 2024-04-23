@@ -8,7 +8,7 @@ let guessesLeft = NUM_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
 //Chooses a random word from WORDS array
-let word = WORDS[Math.floor(Math.random() * WORDS.length)];
+let word = "Mount"//WORDS[Math.floor(Math.random() * WORDS.length)];
 word = word.toUpperCase();
 let board = document.getElementById("game-board");
 let darkMode = false;
